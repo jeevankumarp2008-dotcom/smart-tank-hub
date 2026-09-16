@@ -246,7 +246,7 @@ export function useTelemetry() {
 
 export function useSelectedTank() {
   const s = useTelemetry();
-  return s.tanks.find((t) => t.id === s.selectedTankId) ?? s.tanks[0];
+  return (s.tanks.find((t) => t.id === s.selectedTankId) ?? s.tanks[0]) as Tank;
 }
 
 export const liters = (tank: Tank) => Math.round(tank.level * tank.capacity);
